@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rwanda's Health Today | RDHS 2025</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js creates interactive charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <a href="#" class="logo">RWANDA <span>HEALTH TODAY</span></a>
+
+        <nav>
+            <a href="#indicators">Indicators</a>
+            <a href="#explore">Explore Data</a>
+            <a href="#sources">Sources</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Hero section -->
+        <section class="hero">
+            <div class="hero-text">
+                <p class="eyebrow">RWANDA DHS 2025</p>
+
+                <h1>
+                    Rwanda's Health Today.
+                    <span>What Do the Numbers Reveal?</span>
+                </h1>
+
+                <p class="intro">
+                    Discover what four important health indicators reveal
+                    about children, mothers, and adolescent girls in Rwanda.
+                </p>
+
+                <a href="#indicators" class="button">
+                    Explore the Data ↓
+                </a>
+
+                <p class="notice">
+                    Figures shown are rounded headline values from the
+                    team's research spreadsheet. See the source note below.
+                </p>
+            </div>
+
+            <div class="hero-visual">
+                <div class="circle">
+                    <span class="plus">+</span>
+                    <strong>04</strong>
+                    <p>Health Indicators</p>
+                </div>
+
+                <span class="floating-label label-one">CHILD HEALTH</span>
+                <span class="floating-label label-two">MATERNAL CARE</span>
+            </div>
+        </section>
+
+        <!-- Indicator cards -->
+        <section class="section" id="indicators">
+
+            <div class="section-heading">
+                <p class="eyebrow">THE HEALTH SNAPSHOT</p>
+                <h2>Four Indicators. One Bigger Picture.</h2>
+
+                <p>
+                    Select an indicator to explore its data and learn
+                    what the percentage measures.
+                </p>
+            </div>
+
+            <div class="card-grid">
+
+                <button
+                    type="button"
+                    aria-pressed="false"
+                    class="indicator-card"
+                    data-indicator="stunting">
+
+                    <span class="icon green">🌱</span>
+                    <span class="percentage">27%</span>
+                    <h3>Child Stunting</h3>
+
+                    <p>
+                        Children under five experiencing stunting.
+                    </p>
+
+                    <span class="card-link">Explore indicator ↗</span>
+                </button>
+
+                <button
+                    type="button"
+                    aria-pressed="false"
+                    class="indicator-card"
+                    data-indicator="vaccination">
+
+                    <span class="icon blue">🛡️</span>
+                    <span class="percentage">94%</span>
+                    <h3>Childhood Vaccination</h3>
+
+                    <p>
+                        Children aged 12–23 months fully vaccinated
+                        with basic antigens.
+                    </p>
+
+                    <span class="card-link">Explore indicator ↗</span>
+                </button>
+
+                <button
+                    type="button"
+                    aria-pressed="false"
+                    class="indicator-card"
+                    data-indicator="anc">
+
+                    <span class="icon orange">🤰</span>
+                    <span class="percentage">78%</span>
+                    <h3>Antenatal Care</h3>
+
+                    <p>
+                        Women receiving at least four antenatal care visits.
+                    </p>
+
+                    <span class="card-link">Explore indicator ↗</span>
+                </button>
+
+                <button
+                    type="button"
+                    aria-pressed="false"
+                    class="indicator-card"
+                    data-indicator="teenage">
+
+                    <span class="icon pink">🌼</span>
+                    <span class="percentage">8%</span>
+                    <h3>Teenage Pregnancy</h3>
+
+                    <p>
+                        Women aged 15–19 who have ever been pregnant.
+                    </p>
+
+                    <span class="card-link">Explore indicator ↗</span>
+                </button>
+
+            </div>
+        </section>
+
+        <!-- Important explanation -->
+        <section class="insight">
+            <div class="insight-symbol">✳</div>
+
+            <div>
+                <p class="eyebrow">UNDERSTANDING THE DATA</p>
+
+                <h2>One Number Never Tells the Whole Story.</h2>
+
+                <p>
+                    These indicators measure different things. For example,
+                    stunting and teenage pregnancy describe health outcomes,
+                    while vaccination and antenatal care describe service
+                    coverage. The percentages alone do not explain why
+                    these outcomes occur.
+                </p>
+            </div>
+        </section>
+
+        <!-- Interactive data explorer -->
+        <section class="section" id="explore">
+
+            <div class="section-heading">
+                <p class="eyebrow">INTERACTIVE DATA EXPLORER</p>
+                <h2>Look a Little Closer</h2>
+
+                <p>
+                    Choose an indicator to explore its figure, definition,
+                    population, and available context.
+                </p>
+            </div>
+
+            <div class="explorer">
+
+                <div class="controls">
+                    <label for="indicatorSelect">
+                        Select a health indicator
+                    </label>
+
+                    <select id="indicatorSelect">
+                        <option value="stunting">Child Stunting</option>
+                        <option value="vaccination">Childhood Vaccination</option>
+                        <option value="anc">Antenatal Care</option>
+                        <option value="teenage">Teenage Pregnancy</option>
+                    </select>
+
+                    <div id="indicatorInfo" aria-live="polite"></div>
+
+                    <button
+                        id="detailsButton"
+                        class="details-button"
+                        type="button"
+                        aria-expanded="false">
+
+                        Show Definition and Context +
+                    </button>
+
+                    <div id="detailsPanel" hidden></div>
+                </div>
+
+                <div class="chart-box">
+
+                    <div class="chart-header">
+                        <div>
+                            <p class="eyebrow">HEADLINE FIGURE</p>
+                            <h3 id="chartTitle">Child Stunting</h3>
+                        </div>
+
+                        <span class="year-badge">2025</span>
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="healthChart"></canvas>
+                    </div>
+
+                    <p id="chartCaption" class="chart-caption"></p>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Data story -->
+        <section class="takeaway">
+            <p class="eyebrow">QUESTIONS THAT MATTER</p>
+
+            <h2>Turn Statistics into Meaningful Questions.</h2>
+
+            <div class="takeaway-grid">
+
+                <article>
+                    <span>01</span>
+                    <h3>Nutrition</h3>
+
+                    <p>
+                        What could help reduce stunting among children
+                        under five?
+                    </p>
+                </article>
+
+                <article>
+                    <span>02</span>
+                    <h3>Prevention</h3>
+
+                    <p>
+                        How can health services reach children who are
+                        not fully vaccinated?
+                    </p>
+                </article>
+
+                <article>
+                    <span>03</span>
+                    <h3>Maternal Care</h3>
+
+                    <p>
+                        What could make antenatal visits more accessible
+                        to pregnant women?
+                    </p>
+                </article>
+
+                <article>
+                    <span>04</span>
+                    <h3>Adolescent Health</h3>
+
+                    <p>
+                        What support and information can help adolescent
+                        girls make informed choices?
+                    </p>
+                </article>
+
+            </div>
+
+            <p class="takeaway-note">
+                These are discussion questions inspired by the data,
+                not conclusions proven by the percentages alone.
+            </p>
+        </section>
+
+        <!-- Sources -->
+        <section class="sources section" id="sources">
+
+            <p class="eyebrow">ABOUT THE DATA</p>
+            <h2>Sources and Methodology</h2>
+
+            <p>
+                The figures on this page were transcribed from the team's
+                research spreadsheet. The spreadsheet identifies the
+                source as the Rwanda Demographic and Health Survey 2025
+                Key Indicators Report (preliminary).
+            </p>
+
+            <div class="source-box">
+                <h3>Data Source</h3>
+
+                <p>
+                    National Institute of Statistics of Rwanda (NISR),
+                    Ministry of Health, and ICF.
+                </p>
+
+                <a
+                    href="https://dhsprogram.com/pubs/pdf/PR164/PR164.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    Open the report PDF ↗
+                </a>
+
+                <p class="notice">
+                    Important: Your research sheet notes that a final
+                    report exists and has not yet been compared. Confirm
+                    the report version, figures, and definitions before
+                    submitting your infographic.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <strong>RWANDA HEALTH TODAY</strong>
+        <span>Data can inform better questions.</span>
+    </footer>
+
+</body>
+</html>
